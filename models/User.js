@@ -35,6 +35,13 @@ User.init(
                 updateUserData.password = await bcrypt.hash(updateUserData.password, 10);
                 return updateUserData
             }
-        }
-    }
+        },
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: "users",
+    },
 )
+
+module.exports = User;
