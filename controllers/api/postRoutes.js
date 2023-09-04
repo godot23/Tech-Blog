@@ -3,6 +3,21 @@ const withAuth = require('../../utils/auth');
 
 const{ Post } = require("../../models/");
 
+router.delete('/:id', withAuth, async (req, res) =>{
+    try{
+        const postData = await Post.destroy({
+            where: {
+                id: req.params.id,
+                user_id: req.session.user_id
+            }
+        })
+        res.status(200).json(postData)
+    }
+    catch (err){
+        res.status(500).json(err);
+    }
+})
+
 router.post('/', withAuth, async(req, res) =>{
     try{
         const newPost = await Post.create({
