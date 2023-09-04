@@ -1,0 +1,22 @@
+[{
+    "title": "What I ate for lunch today",
+    "content": "today I had a hamburger and some fries",
+    "username": "jasonanavon",
+    "date_created": "6/23/2023",
+    "user_id": "jan"
+},
+{
+    "title": "My favourite game",
+    "content": "my favourite game is kingdom hearts 2",
+    "username": "jasonanavon",
+    "date_created": "6/26/2023",
+    "user_id": "jan"
+},
+{
+    "title": "What I learned today",
+    "content": "today I learned about MVC",
+    "username": "jasonanavon",
+    "date_created": "6/30/2023",
+    "user_id": "jan"
+}
+]
