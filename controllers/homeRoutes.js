@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User, Post } = require("../models")
-const withAuth = require("../utis/auth");
+const withAuth = require("../utils/auth");
 
 router.get('/', async (req, res) => {
     try {
@@ -8,16 +8,17 @@ router.get('/', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['userName'],
+                    attributes: ['user_name'],
                 },
             ],
         });
 
         const posts = getPosts.map((post) => post.get({ plain: true }));
         res.render('homepage', {
-            posts,
-            logged_in: req.session.logged_in
+            posts
+            // logged_in: req.session.logged_in
         });
+        // res.status(200).json(posts);
     }
     catch (err) {
         res.status(500).json(err);
@@ -33,10 +34,11 @@ router.get('/post/:id', async (req, res) => {
             },
             ],
         })
-        res.render('dashboard', {
-            ...posts,
-            logged_in: true
-        });
+        // res.render('dashboard', {
+        //     ...posts,
+        //     logged_in: true
+        // });
+        res.status(200).json(postData);
     }
     catch (err) {
         res.status(500).json(err)
